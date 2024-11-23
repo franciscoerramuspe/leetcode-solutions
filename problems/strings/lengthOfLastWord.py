@@ -20,10 +20,22 @@ s = "   hi my    name is   francisco    "
 
 s = 'a '
     lr
+
+Time: O(N)
+Space: O(1)
 '''
 def lengthOfLastWord(s):
-    if len(s) == 1:
-        return 1
+    #First solution
+    # words = s.split(' ')
+    #     r = len(words)-1
+    #     while True:
+    #         if words[r]:
+    #             return len(words[r])
+    #         r-=1
+    # if len(s) == 1:
+    #     return 1
+
+    # Second optimized solution
     l = r = len(s)-1
     while True:
         if s[r] != ' ':
