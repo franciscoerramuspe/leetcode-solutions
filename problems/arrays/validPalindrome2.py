@@ -34,7 +34,7 @@ solution failed with test case: s = "aguokepatgbnvfqmgmlcupuufxoohdfpgjdmysgvhmv
 
 '''
 def validPalindrome2(s):
-    # second solution that passes all test cases
+    # second solution that passes all test
     if not s:
         return False
     if len(s) == 1:
