@@ -1,4 +1,15 @@
- (([1, 2, 5, 5, 6, 7, 5, 5],), 6),
-    (([2, 2, 2, 2],), 4),
-    (([1],), 1),
-    (([8, 2, 4, 8, 8, 3, 9, 8, 8],), 9),
+i, j, k = m, m+n, n
+    while k >= 0:
+        if nums2[k] > nums1[i]:
+            nums1[j]= nums2[k] 
+            j-=1
+            k-=1
+        elif nums2[k] < nums1[i]:
+            nums1[j] = nums1[i]
+            j-=1
+            i-=1
+        else:
+            nums1[j] = nums2[k]
+            j-=1
+            k-=1
+    return nums1
