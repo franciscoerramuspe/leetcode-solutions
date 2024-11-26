@@ -13,6 +13,10 @@ m = 4
 if m * m > num:
     r=m-1
 
+
+use binary search
+Time: O(logn)
+Space:O(1)
 '''
 def isValidSquare(num):
     l, r = 1, num
