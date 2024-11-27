@@ -27,21 +27,22 @@ def jumpGame(nums):
            target = i
     return target == 0
 
+# DP solution
+def jumpGameDp(nums):
+    dp = [False for _ in range(len(nums))]
+    dp[-1] = True 
 
-
-
-    # first solution(not working)
-    # n = len(nums) -1
-    # dp = [nums[0], nums[1]]
-    # def jump(i):
-    #     if nums[i] == 0:
-    #         return False
-    #     if i >= n:
-    #         return True
-    #     return(jump(i+nums[i]) or jump(i+(nums[i-1])))
-    # return jump(0)
-        
-            
+    for i in range(len(nums)-2, -1, -1):
+        #  iterate through all possible jumps from i and update dp[i] to True if any of those positions can reach the end.
+        for jump in range(1, nums[i] + 1):
+            newIndex=i+jump
+            if newIndex < len(nums):
+                if dp[newIndex]:
+                    dp[i]=True
+                    break
+        else:
+            dp[i]=False
+    return dp[0]
 
 
 def run_tests(func, test_cases):
@@ -71,4 +72,4 @@ test_cases = [
    
 
 if __name__ == "__main__":
-    run_tests(jumpGame, test_cases)
+    run_tests(jumpGameDp, test_cases)
