@@ -19,18 +19,25 @@ Time: O(logn)
 Space:O(1)
 '''
 def isValidSquare(num):
-    l, r = 1, num
-
-    while l <= r:
-        m = (r+l) //2
-        curSquare = m*m
-        if curSquare > num:
-            r = m-1
-        elif curSquare < num:
-            l = m+1
-        else:
+    if num == 1:
+        return True
+    def isNumPerfectSquare(x):
+        if x*x <= num:
             return True
-    return False
+        else:
+            return False
+
+
+    l, r = 0, num
+    while r-l>1:
+        m = (r+l) //2
+        if isNumPerfectSquare(m):
+            l=m
+        else:
+            r=m
+    return l**2==num
+
+
 
 
 
