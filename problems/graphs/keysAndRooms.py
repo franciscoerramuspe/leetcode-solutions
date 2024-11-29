@@ -25,19 +25,31 @@ use dfs with stack
 [[1,3],[3,0,1],[2],[0]]
 
 '''
+# def keysAndRooms(rooms):
+#     visited = set()
+#     stack=[0]
+
+#     while stack:
+#         curRoom=stack.pop() 
+#         if curRoom not in visited:
+#             visited.add(curRoom) 
+#             if rooms[curRoom]:
+#                 for key in rooms[curRoom]: 
+#                     stack.append(key)
+    
+#     return len(visited) == len(rooms)
+
 def keysAndRooms(rooms):
     visited = set()
-    stack=[0]
 
-    while stack:
-        curRoom=stack.pop() 
-        if curRoom not in visited:
-            visited.add(curRoom) 
-            if rooms[curRoom]:
-                for key in rooms[curRoom]: 
-                    stack.append(key)
-    
-    return len(visited) == len(rooms) 
+    def dfs(i):
+        if i not in visited:
+            visited.add(i) 
+            if rooms[i]:
+                for key in rooms[i]: 
+                    dfs(key)
+    dfs(0)
+    return len(visited) == len(rooms)  
     
 
 def cheq_eq(a,b):
@@ -48,7 +60,7 @@ def cheq_eq(a,b):
 
 print(cheq_eq(keysAndRooms([[1,3],[3,0,1],[2],[0]]), False))
 print(cheq_eq(keysAndRooms([[2,1], 
-       [0,3], 
+    [0,3], 
        [4], 
         [1], 
         []]), True))
