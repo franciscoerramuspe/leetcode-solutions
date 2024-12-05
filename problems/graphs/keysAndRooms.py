@@ -24,6 +24,9 @@ use dfs with stack
 
 [[1,3],[3,0,1],[2],[0]]
 
+Time complexity: O(n.m)
+Space complexity: O(n)
+
 '''
 # def keysAndRooms(rooms):
 #     visited = set()
