@@ -41,3 +41,21 @@ def removeElemnts(head, val):
             prev=cur
             cur=cur.next
     return dummy.next   
+
+# intento 2: implementar eraseNext y luego resolver el problema. Esto está bueno pq demustra que tenés capacidad de descomponer el problema en subproblemas mas abstractos. 
+def removeElements(head, val):
+     def eraseNext(node):
+            node.next=node.next.next
+    if not head:
+        return None
+    cur = head
+
+    while cur.next:
+        if cur.next.val == val:
+            eraseNext(cur)
+        else:
+            cur=cur.next
+    if head.val == val:
+        return head.next
+    return head
+        
