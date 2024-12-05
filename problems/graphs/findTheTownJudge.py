@@ -33,6 +33,8 @@ ans =1
 
 construct a graph
 
+Time complexity:O(n.m)
+Space complexity:O(n.m)
 
 '''
 from collections import defaultdict
