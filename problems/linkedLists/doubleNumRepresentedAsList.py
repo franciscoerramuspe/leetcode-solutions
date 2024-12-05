@@ -47,3 +47,32 @@ class Solution:
                 i+=1
                 cur=cur.next
         return head
+
+#intento 2: hacer la misma implementacion pero usando una implementacion de List que tenga pushright, 
+# TAREA 2: hacerlo en O(1) de memoria auxiliar (vas a usar O(n) para el output, pero sin tener en cuenta eso, o sea sin usar la lista digits)
+def doubleNumRepresentedAsLl(head):
+    def pushVal(curNode, val):
+            if not curNode.next and i==len(number)-2:
+                print('here')
+                curNode.next=ListNode()
+            
+            curNode.val=val
+
+        
+    cur=head
+    number=''
+
+    while cur:
+        number+=str(cur.val)
+        cur=cur.next
+
+    number=str(int(number) *2)
+    cur=head
+    i=0
+
+    print(number)
+    while i<len(number):
+        pushVal(cur, int(number[i]))
+        cur=cur.next
+        i+=1
+    return head
