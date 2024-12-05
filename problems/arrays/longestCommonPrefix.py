@@ -40,3 +40,48 @@ def longestCommonPrefix(s):
         # add the letter to ans
         ans+=curChar
     return ans
+
+# intento 2 hacer con trie
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_word = False
+
+class Trie:
+    def __init__(self):
+        self.trie=TrieNode()
+
+    def insert(self, word):
+        trie=self.trie
+        for char in word:
+            if char not in trie.children:
+                trie.children[char]=TrieNode()
+            
+            trie=trie.children[char]
+        trie.is_end_of_word=True
+
+    def startsWith(self, prefix):
+        trie=self.trie
+        for c in prefix:
+            if c not in trie.children:
+                return False
+            trie=trie.children[c]
+        return True
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        trie = Trie()
+        for word in strs:
+            trie.insert(word)
+        
+        ans=''
+        trie=trie.trie
+        while True:
+            if len(trie.children) != 1 or trie.is_end_of_word:
+                return ans
+            
+            for char, nxt in trie.children.items():
+                ans+=char
+                trie=nxt
+        return ans
+        
